@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build -t streamlit_app .
+      run: docker build -t streamlit_app . &/
           aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 211125689343.dkr.ecr.eu-central-1.amazonaws.com
           docker tag streamlit_app:latest 211125689343.dkr.ecr.eu-central-1.amazonaws.com/streamlit_app:latest
           docker push 211125689343.dkr.ecr.eu-central-1.amazonaws.com/streamlit_app:latest
